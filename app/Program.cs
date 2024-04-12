@@ -1,11 +1,11 @@
-﻿public static double CalculateAverage(int[] numbers)
-{
+﻿public static int MaxValue(int[] numbers) {
     if (numbers == null || numbers.Length == 0)
-        return 0;
-    double sum = 0;
-    foreach (var num in numbers)
-    {
-        sum += num;
+        throw new ArgumentException("Array cannot be null or empty.");
+
+    int max = numbers[0];
+    for (int i = 1; i < numbers.Length; i++) {
+        if (numbers[i] > max)
+            max = numbers[i];
     }
-    return sum / numbers.Length;
+    return max;
 }
